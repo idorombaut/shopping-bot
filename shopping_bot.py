@@ -10,6 +10,8 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 # File to store shopping lists
 FILE = "shopping_lists.json"
 
+print(f"Shopping lists will be saved to: {os.path.abspath(FILE)}")
+
 # Dictionary to store each user's shopping list
 shopping_lists = {}  # {user_id: [item1, item2, ...]}
 
