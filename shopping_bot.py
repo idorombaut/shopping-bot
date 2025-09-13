@@ -4,13 +4,11 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # Load token from file
-# with open("token.txt", "r") as f:
-#     TOKEN = f.read().strip()
+with open("config.txt", "r") as f:
+    TOKEN = f.read().strip()
 
 # File to store shopping lists
 FILE = "shopping_lists.json"
-
-print(f"Shopping lists will be saved to: {os.path.abspath(FILE)}")
 
 # Dictionary to store each user's shopping list
 shopping_lists = {}  # {user_id: [item1, item2, ...]}
@@ -93,7 +91,7 @@ async def clear_list(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # Main function
 def main():
     load_lists()  # load saved shopping lists at startup
-    TOKEN = os.environ.get("BOT_TOKEN")
+    # TOKEN = os.environ.get("BOT_TOKEN")
     app = ApplicationBuilder().token(TOKEN).build()   
 
     # app = ApplicationBuilder().token(TOKEN).build()
